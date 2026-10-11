@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>
+            EDWARD // SYSTEM BREACH
+        </title>
+        <link rel="stylesheet" href="aled.css">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="intro-stage">
+            <div id="intro-cursor">
+            </div>
+            <div id="edward-character">
+                <img id="edward-image" alt="Edward">
+            </div>
+        </div>
+        <svg class="svg-filter-definitions" width="0" height="0" aria-hidden="true">
+            <filter id="liquid-distortion-filter">
+                <feTurbulence type="fractalNoise" baseFrequency=".012 .02" numOctaves="2" result="n">
+                    <animate attributeName="baseFrequency" dur="7s" values=".012 .02;.022 .012;.012 .02" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+            </filter>
+            <filter id="strong-liquid-distortion-filter">
+                <feTurbulence type="fractalNoise" baseFrequency=".02 .03" numOctaves="2" result="n">
+                    <animate attributeName="baseFrequency" dur="3s" values=".02 .03;.035 .02;.02 .03" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="30"/>
+            </filter>
+        </svg>
+        <div id="portfolio-site" tabindex="-1">
+            <div id="code-backdrop" aria-hidden="true">
+            </div>
+            <main id="main-content">
+                <section id="home-section">
+                    <div class="content-panel hero-panel reveal-on-scroll">
+                        <h1>
+                            ALED
+                        </h1>
+                        <p>
+                            Alejandro Javier Silva Puch · estudiante de Ingeniería Informática. Desarrollo web, software, bases de datos, UX/UI y ciberseguridad.
+                        </p>
+                        <p>
+                            Baja para encender las pantallas.
+                        </p>
+                    </div>
+                </section>
+                <section id="about-section">
+                    <h2 class="section-heading">
+                        Sobre mí
+                    </h2>
+                    <div class="content-grid">
+                        <div class="monitor-card column-span-7">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                perfil.txt
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ whoami
+                                </p>
+                                <h3>
+                                    Alejandro Javier Silva Puch
+                                </h3>
+                                <p>
+                                    Estudiante de 4.º año de Ingeniería Informática en Santo Tomás, Chile. Mi perfil combina desarrollo de software, desarrollo web, bases de datos, WordPress, UX/UI y un creciente interés por ciberseguridad.
+                                </p>
+                                <p>
+                                    Me gusta aprender mediante proyectos prácticos. No me interesa solamente que una aplicación funcione, sino también que sea fácil de usar, eficiente, visualmente atractiva y tenga una buena experiencia de usuario.
+                                </p>
+                                <p>
+                                    Me interesa combinar programación, diseño y tecnología para crear soluciones completas.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-5 accent-orange">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                intereses.log
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ cat intereses.log
+                                </p>
+                                <h3>
+                                    Intereses
+                                </h3>
+                                <div>
+                                    <span class="skill-tag">
+                                        Desarrollo web
+                                    </span>
+                                    <span class="skill-tag">
+                                        Software
+                                    </span>
+                                    <span class="skill-tag">
+                                        WordPress
+                                    </span>
+                                    <span class="skill-tag">
+                                        UX/UI
+                                    </span>
+                                    <span class="skill-tag">
+                                        Bases de datos
+                                    </span>
+                                    <span class="skill-tag">
+                                        Ciberseguridad
+                                    </span>
+                                    <span class="skill-tag">
+                                        Automatización
+                                    </span>
+                                    <span class="skill-tag">
+                                        Diseño digital
+                                    </span>
+                                    <span class="skill-tag">
+                                        Experiencias web interactivas
+                                    </span>
+                                </div>
+                                <p>
+                                    También me gustan videojuegos, anime (de aquí salió la idea XD), ciencia ficción y estilos visuales experimentales.
+                                </p>
+                                <figure class="edward-portrait portrait-shape-alternate interests-portrait">
+                                    <img data-image-key="ghostL" alt="Edward">
+                                    <div class="hex-data-overlay" aria-hidden="true">
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="skills-section">
+                    <h2 class="section-heading">
+                        Habilidades
+                    </h2>
+                    <div class="content-grid">
+                        <div class="monitor-card column-span-7">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                web.sh
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ ls ./web
+                                </p>
+                                <h3>
+                                    Web
+                                </h3>
+                                <div>
+                                    <span class="skill-tag">
+                                        HTML
+                                    </span>
+                                    <span class="skill-tag">
+                                        CSS
+                                    </span>
+                                    <span class="skill-tag">
+                                        JavaScript
+                                    </span>
+                                    <span class="skill-tag">
+                                        PHP
+                                    </span>
+                                    <span class="skill-tag">
+                                        WordPress
+                                    </span>
+                                    <span class="skill-tag">
+                                        Elementor
+                                    </span>
+                                    <span class="skill-tag">
+                                        WooCommerce
+                                    </span>
+                                    <span class="skill-tag">
+                                        cPanel
+                                    </span>
+                                    <span class="skill-tag">
+                                        phpMyAdmin
+                                    </span>
+                                    <span class="skill-tag">
+                                        SEO y rendimiento web
+                                    </span>
+                                    <span class="skill-tag">
+                                        Plugins WordPress
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-5 accent-orange">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                software_datos.sh
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ ls ./software
+                                </p>
+                                <h3>
+                                    Software y datos
+                                </h3>
+                                <div>
+                                    <span class="skill-tag">
+                                        C#
+                                    </span>
+                                    <span class="skill-tag">
+                                        WPF
+                                    </span>
+                                    <span class="skill-tag">
+                                        MySQL
+                                    </span>
+                                    <span class="skill-tag">
+                                        SQL Server
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-5">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                ux_ui.fig
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ ls ./ux
+                                </p>
+                                <h3>
+                                    UX/UI
+                                </h3>
+                                <div>
+                                    <span class="skill-tag">
+                                        Diseño y análisis UX/UI
+                                    </span>
+                                    <span class="skill-tag">
+                                        Sistemas POS
+                                    </span>
+                                    <span class="skill-tag">
+                                        Dashboards
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-7 accent-orange">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                seguridad.sh
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ sudo ./explorar
+                                </p>
+                                <h3>
+                                    Ciberseguridad
+                                </h3>
+                                <p>
+                                    Interés en pentesting y herramientas de ciberseguridad. Estoy explorando este campo a través de proyectos prácticos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="projects-section">
+                    <h2 class="section-heading">
+                        Proyectos
+                    </h2>
+                    <div class="content-grid">
+                        <div class="monitor-card column-span-7">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                casa_de_ropa.wp
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ open casa_de_ropa
+                                </p>
+                                <h3>
+                                    Casa de Ropa
+                                </h3>
+                                <p>
+                                    Desarrollo y optimización de un sitio WordPress/WooCommerce, trabajando en diseño, SEO, rendimiento, Elementor y funcionalidades personalizadas.
+                                </p>
+                                <div>
+                                    <span class="skill-tag">
+                                        WordPress
+                                    </span>
+                                    <span class="skill-tag">
+                                        WooCommerce
+                                    </span>
+                                    <span class="skill-tag">
+                                        Elementor
+                                    </span>
+                                    <span class="skill-tag">
+                                        SEO
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-5 accent-orange">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                orquesta_tarapaca.wp
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ open orquesta_tarapaca
+                                </p>
+                                <h3>
+                                    Orquesta Regional de Tarapacá
+                                </h3>
+                                <p>
+                                    Desarrollo y mantenimiento de un sitio WordPress con Elementor, contenido dinámico, SEO y optimización de rendimiento.
+                                </p>
+                                <p>
+                                    <a href="https://orquestaregionaldetarapaca.cl" target="_blank" rel="noopener noreferrer">
+                                        orquestaregionaldetarapaca.cl
+                                    </a>
+                                </p>
+                                <div>
+                                    <span class="skill-tag">
+                                        WordPress
+                                    </span>
+                                    <span class="skill-tag">
+                                        Elementor
+                                    </span>
+                                    <span class="skill-tag">
+                                        SEO
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-6">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                asistencia.exe
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ run asistencia.exe
+                                </p>
+                                <h3>
+                                    Sistema de Control de Asistencia
+                                </h3>
+                                <p>
+                                    Aplicación desarrollada con C#, WPF, SQL Server y BCrypt.
+                                </p>
+                                <div>
+                                    <span class="skill-tag">
+                                        C#
+                                    </span>
+                                    <span class="skill-tag">
+                                        WPF
+                                    </span>
+                                    <span class="skill-tag">
+                                        SQL Server
+                                    </span>
+                                    <span class="skill-tag">
+                                        BCrypt
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-6">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                bases_de_datos.sql
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ mysql -u ale
+                                </p>
+                                <h3>
+                                    Proyectos de bases de datos
+                                </h3>
+                                <p>
+                                    Sistemas y modelos realizados con MySQL y SQL Server.
+                                </p>
+                                <div>
+                                    <span class="skill-tag">
+                                        MySQL
+                                    </span>
+                                    <span class="skill-tag">
+                                        SQL Server
+                                    </span>
+                                    <span class="skill-tag">
+                                        Modelamiento
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-7 accent-orange">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                gestor_formularios.php
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ wp plugin activate
+                                </p>
+                                <h3>
+                                    Gestor de formularios
+                                </h3>
+                                <p>
+                                    Plugin WordPress para administrar la visualización de formularios/elementos de Elementor mediante configuraciones y fechas.
+                                </p>
+                                <div>
+                                    <span class="skill-tag">
+                                        WordPress
+                                    </span>
+                                    <span class="skill-tag">
+                                        PHP
+                                    </span>
+                                    <span class="skill-tag">
+                                        Elementor
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="monitor-card column-span-5">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                experimentos.sh
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ ./experimentos --listar
+                                </p>
+                                <h3>
+                                    Experimentos
+                                </h3>
+                                <p>
+                                    También desarrollo proyectos experimentales para aprender y explorar nuevas ideas, incluyendo interfaces interactivas, herramientas portátiles y conceptos relacionados con ciberseguridad. Este sitio es uno de ellos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="contact-section">
+                    <h2 class="section-heading">
+                        Contacto
+                    </h2>
+                    <div class="content-grid">
+                        <div class="monitor-card column-span-8">
+                            <div class="monitor-titlebar">
+                                <span class="status-indicator">
+                                </span>
+                                contacto.sh
+                            </div>
+                            <div class="monitor-screen">
+                                <p class="terminal-prompt">
+                                    $ ./contacto --abrir
+                                </p>
+                                <h3>
+                                    Hablemos
+                                </h3>
+                                <p>
+                                    LinkedIn:
+                                    <a href="https://www.linkedin.com/in/alejandro-javier-silva-puch" target="_blank" rel="noopener noreferrer">
+                                        linkedin.com/in/alejandro-javier-silva-puch
+                                    </a>
+                                </p>
+                                <p>
+                                    GitHub:
+                                    <a href="https://github.com/Aleloltukogetout" target="_blank" rel="noopener noreferrer">
+                                        github.com/Aleloltukogetout
+                                    </a>
+                                </p>
+                                <p>
+                                    Correo:
+                                    <a href="mailto:alejandrosilvapuch184@gmail.com">
+                                        alejandrosilvapuch184@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <div id="boot-terminal">
+            <div id="terminal-log">
+            </div>
+        </div>
+        <div id="system-message" role="status">
+        </div>
+        <div id="flash-overlay">
+        </div>
+        <canvas id="plasma-canvas">
+        </canvas>
+        <div id="depth-overlay">
+        </div>
+        <canvas id="fish-canvas">
+        </canvas>
+        <canvas id="glitch-canvas">
+        </canvas>
+        <div id="plasma-fallback">
+        </div>
+        <canvas id="bubble-canvas">
+        </canvas>
+        <nav id="section-navigation" aria-label="Principal">
+            <button data-section-id="01">
+                [01] HOME
+            </button>
+            <button data-section-id="02">
+                [02] ABOUT
+            </button>
+            <button data-section-id="03">
+                [03] SKILLS
+            </button>
+            <button data-section-id="04">
+                [04] PROJECTS
+            </button>
+            <button data-section-id="05">
+                [05] CONTACT
+            </button>
+        </nav>
+        <div id="popup-layer" aria-hidden="true">
+        </div>
+        <div id="custom-cursor">
+        </div>
+        <div id="phase-indicator">
+            fase 01 · vacío
+        </div>
+        <canvas id="fish-tooltip-canvas">
+        </canvas>
+        <div id="crt-overlay" class="is-active" aria-hidden="true">
+        </div>
+        <button id="crt-toggle" type="button" aria-pressed="true">
+            CRT: FINO
+        </button>
+        <script src="aled.js">
+        </script>
+    </body>
+</html>
