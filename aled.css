@@ -1,4 +1,4 @@
-/* Theme and shared defaults */
+/* colores generales y fuentes generales */
 :root
 {
     --color-background:#050505;
@@ -30,7 +30,7 @@ body
     width:0;
     height:0
 }
-/* Intro animation */
+/* Animación de intro */
 #intro-stage
 {
     position:fixed;
@@ -129,7 +129,7 @@ body
     z-index:46;
     letter-spacing:.08em
 }
-/* Boot sequence and visual effects */
+/* Secuencia de arranque y efectos visuales */
 #boot-terminal
 {
     position:fixed;
@@ -499,7 +499,7 @@ html.is-page-hidden *,html.is-page-hidden *::before,html.is-page-hidden *::after
 {
     transition:width .2s,height .2s,margin .2s,background .2s
 }
-/* Portfolio layout and typography */
+/* Diseño y tipografía del portafolio */
 #portfolio-site
 {
     position:fixed;
@@ -758,7 +758,7 @@ html.is-page-hidden *,html.is-page-hidden *::before,html.is-page-hidden *::after
     max-width:1100px;
     margin:0 auto 4vh
 }
-/* Monitor cards and interactive popups */
+/* Monitores y efectos de popup */
 .monitor-card
 {
     display:flex;
