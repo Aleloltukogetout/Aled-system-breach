@@ -701,6 +701,10 @@ html.is-page-hidden *,html.is-page-hidden *::before,html.is-page-hidden *::after
 }
 @media(max-width:767px)
 {
+    #crt-overlay
+    {
+        background-size:auto,2px 2px
+    }
     #code-backdrop
     {
         display:none
@@ -708,6 +712,22 @@ html.is-page-hidden *,html.is-page-hidden *::before,html.is-page-hidden *::after
     #main-content section
     {
         padding-top:calc(120px + 4vh)
+    }
+    .hero-copy
+    {
+        width:fit-content;
+        max-width:100%;
+        margin-top:1em;
+        padding:8px 10px;
+        background:rgba(5,5,5,.62)
+    }
+    .hero-copy p
+    {
+        margin-top:0
+    }
+    .hero-copy p+p
+    {
+        margin-top:.75em
     }
     #section-navigation.is-active
     {
@@ -718,7 +738,15 @@ html.is-page-hidden *,html.is-page-hidden *::before,html.is-page-hidden *::after
         right:10px;
         top:calc(40px + env(safe-area-inset-top,0px));
         font-size:12px;
-        line-height:1.7
+        line-height:1.7;
+        transition:opacity .2s ease,transform .2s ease,visibility .2s
+    }
+    #section-navigation.is-hidden:not(:focus-within)
+    {
+        opacity:0;
+        transform:translateY(calc(-100% - 16px));
+        visibility:hidden;
+        pointer-events:none
     }
     #section-navigation button::before
     {

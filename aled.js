@@ -299,10 +299,10 @@ c=mix(c,vec3(.9,1.,.92),bar);
 float al=max(rev,bar);
 gl_FragColor=vec4(c*al,al);}`;
 const wn=$('#popup-layer'),site=$('#portfolio-site'),mn=$('#main-content'),cl=$('#code-backdrop'),dp=$('#depth-overlay'),fs=$('#fish-canvas'),fx=fs.getContext('2d'),tp=$('#fish-tooltip-canvas'),tpx=tp.getContext('2d');
-const MAX_FISH=5;
+const MAX_FISH=5,COARSE_POINTER=matchMedia('(pointer:coarse)').matches;
 let dep=0,fish=[],lastF=0,pk=0,prn=0;
-let fishTipBounds=null;
-let pA=0,sv=0,siteOn=false,io,sRaf,fr=0,msgUntil=0;
+let fishTipBounds=null,selectedFish=null,selectedFishUntil=0;
+let pA=0,sv=0,siteOn=false,io,sRaf,fr=0,msgUntil=0,navScrollPosition=0;
 function fitTitle(){const t=$('#portfolio-site h1');if(!t)return;t.style.fontSize='';
   for(let i=0;i<3;i++){const cs=getComputedStyle(t.parentElement),box=Math.min(t.parentElement.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),innerWidth-t.getBoundingClientRect().left-14),w=t.scrollWidth;
     if(box>0&&w>box)t.style.fontSize=Math.floor(parseFloat(getComputedStyle(t).fontSize)*box/w*.96)+'px';else break}}
@@ -318,6 +318,12 @@ function enableSite(){
   site.focus({preventScroll:true});wn.style.display='block';[0,1,2].forEach(i=>sleep(mkWin,400+i*1100));sleep(winLoop,5000);site.querySelectorAll('.monitor-screen').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--i',i)));fitTitle();[300,1200,3000].forEach(ms=>sleep(fitTitle,ms));sleep(glitchLoop,5500);sRaf=requestAnimationFrame(siteLoop);
 }
 site.addEventListener('scroll',()=>{
+  const scrollTop=site.scrollTop,movement=scrollTop-navScrollPosition;
+  if(nav.classList.contains('is-active')){
+    if(scrollTop===0||movement< -6)nav.classList.remove('is-hidden');
+    else if(movement>6)nav.classList.add('is-hidden');
+    if(Math.abs(movement)>6||scrollTop===0)navScrollPosition=scrollTop;
+  }
   if(siteOn&&!document.hidden&&!sRaf)sRaf=requestAnimationFrame(siteLoop);
 },{passive:true});
 function siteLoop(now){
@@ -506,7 +512,11 @@ function fishTip(){
     fishTipBounds=null;
   }
   if(prn<1)return;
-  let n=null,bd=1e9;for(const f of fish){const d=Math.hypot(f.x-mx,f.y-my);if(d<f.s*.55&&d<bd){bd=d;n=f}}
+  let n=null,bd=1e9;
+  if(COARSE_POINTER){
+    if(selectedFish&&performance.now()<selectedFishUntil&&fish.includes(selectedFish))n=selectedFish;
+    else selectedFish=null;
+  }else for(const f of fish){const d=Math.hypot(f.x-mx,f.y-my);if(d<f.s*.55&&d<bd){bd=d;n=f}}
   if(!n)return;const q=Math.floor(n.ph*10);
   const txt=`NODO ${String(q%90).padStart(2,'0')} · 10.${(q*37)%255}.${(q*91)%255}.${(q*13)%255} · ${Math.floor(n.ph)%4} paq.`;
   tpx.font='10px "Space Mono",monospace';const w=tpx.measureText(txt).width+10;
@@ -515,6 +525,16 @@ function fishTip(){
   tpx.fillStyle='rgba(4,8,20,.88)';tpx.fillRect(x,y,w,16);tpx.strokeStyle='rgba(0,255,65,.7)';tpx.lineWidth=1;tpx.strokeRect(x+.5,y+.5,w-1,15);
   tpx.fillStyle='#E3FF00';tpx.fillText(txt,x+5,y+11);
 }
+document.addEventListener('click',e=>{
+  if(!COARSE_POINTER||!siteOn||!nav.classList.contains('is-active')
+    ||e.target.closest('button,a,input,textarea,select,[contenteditable="true"]'))return;
+  let selected=null,distance=Infinity;
+  for(const f of fish){
+    const d=Math.hypot(f.x-e.clientX,f.y-e.clientY);
+    if(d<Math.max(f.s*.55,26)&&d<distance){selected=f;distance=d}
+  }
+  if(selected){selectedFish=selected;selectedFishUntil=performance.now()+2200}
+});
 function fishLoop(now){
   const dt=Math.min((now-lastF)/1000,.05);lastF=now;fx.clearRect(0,0,W,H);
   for(let i=0;i<fish.length;i++){const f=fish[i];
@@ -537,7 +557,7 @@ function plLoop(now){
   else{pf.style.opacity=1;pf.style.clipPath='inset(0 0 '+(100-Math.floor(pr*36)/36*100).toFixed(2)+'% 0)'}
   if(e>.6&&bt.style.opacity!=='0')bt.style.opacity=0;
   prn=pr;bubbles(now,e);fishLoop(now);
-  if(pr>=1&&!done){done=true;term.style.display='none';nav.classList.add('is-active');setPhase(12,'exploración');
+  if(pr>=1&&!done){done=true;term.style.display='none';nav.classList.remove('is-hidden');navScrollPosition=0;nav.classList.add('is-active');setPhase(12,'exploración');
     enableSite()}
   if(!document.hidden)plRaf=requestAnimationFrame(plLoop);
 }
